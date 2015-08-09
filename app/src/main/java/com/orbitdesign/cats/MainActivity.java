@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity{
             public void onFinishLoad(Bitmap bitmap) {
                 if (bitmap != null) {
                     largeBitmap = bitmap;
+                    // we only get back a bitmap from the api, no file name.
                     updateFileName();
                     useBitmap(largeBitmap);
 
