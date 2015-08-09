@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_save_to_phone">Save to Gallery</string>
+    <string name="action_set_as_wallpaper">Set as Wallpaper</string>
+    <string name="action_share">Share</string>
 </resources>
