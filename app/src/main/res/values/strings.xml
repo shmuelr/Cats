@@ -7,4 +7,5 @@
     <string name="action_set_as_wallpaper">Set as Wallpaper</string>
     <string name="action_share">Share</string>
     <string name="share_text">sent from Cats app</string>
+    <string name="refresh_action">Refresh Image</string>
 </resources>

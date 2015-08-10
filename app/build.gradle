@@ -23,14 +23,33 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    signingConfigs {
+        release
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
+            signingConfig signingConfigs.release
         }
     }
 }
+
+//http://www.thoughtworks.com/insights/blog/signing-open-source-android-apps-without-disclosing-passwords
+
+def props = new Properties()
+
+props.load(new FileInputStream(rootProject.file("release.properties")))
+
+android.signingConfigs.release.storeFile rootProject.file(props.keyStore)
+
+android.signingConfigs.release.storePassword props.keyStorePassword
+
+android.signingConfigs.release.keyAlias props.keyAlias
+
+android.signingConfigs.release.keyPassword props.keyAliasPassword
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
