@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUpGui();
+        ((MyApplication)getApplication()).getTracker();
     }
 
     private void setUpGui() {
