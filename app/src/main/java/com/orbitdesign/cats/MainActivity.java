@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity{
 
                 }else{
                     Log.e(TAG, "Bitmap is null");
-                    Toast.makeText(MainActivity.this, "Oops, there was a mistake. Please contact me so I can fix it. Thanks!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, R.string.oops_error, Toast.LENGTH_LONG).show();
                 }
                 setLoading(false);
             }
@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity{
         File path = new File(Environment.getExternalStorageDirectory().toString()+APP_DIRECTORY);
 
         if(!path.exists()){
-            if(!path.mkdir()) Toast.makeText(this, "Oops. Could not create folder. Please send us an email so we can fix this.", Toast.LENGTH_LONG).show();
+            if(!path.mkdir()) Toast.makeText(this, R.string.oops_error, Toast.LENGTH_LONG).show();
         }
 
         File file = new File(path, getImageTitle()+".jpg"); // the File to save to
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity{
 
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
-            Toast.makeText(this, "Oops. There was an error. Please send us an email so we can fix this.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.oops_error, Toast.LENGTH_LONG).show();
         } finally {
             try {
                 if (out != null) {
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity{
         Intent setAs = new Intent(Intent.ACTION_ATTACH_DATA);
         setAs.setDataAndType(getPhotoUri(), "image/jpg");
         setAs.putExtra("mimeType", "image/jpg");
-        startActivity(Intent.createChooser(setAs, "Set Image As"));
+        startActivity(Intent.createChooser(setAs, getString(R.string.set_image_as)));
     }
 
     public void setLoading(boolean isLoading){
