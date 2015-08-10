@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.google.android.gms.analytics.HitBuilders;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -85,7 +86,10 @@ public class MainActivity extends AppCompatActivity{
                     // we only get back a bitmap from the api, no file name.
                     updateFileName();
                     useBitmap(largeBitmap);
-
+                    ((MyApplication)getApplication()).getTracker().send(new HitBuilders.EventBuilder()
+                            .setCategory("Event")
+                            .setAction("Cat Loaded")
+                            .build());
                 }else{
                     Log.e(TAG, "Bitmap is null");
                     Toast.makeText(MainActivity.this, R.string.oops_error, Toast.LENGTH_LONG).show();
